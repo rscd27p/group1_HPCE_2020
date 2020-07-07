@@ -1,0 +1,24 @@
+The valgring output reports the next information:
+
+==19828== Conditional jump or move depends on uninitialised value(s)
+==19828==    at 0x4E9896A: vfprintf (vfprintf.c:1642)
+==19828==    by 0x4EA0FA5: printf (printf.c:33)
+==19828==    by 0x10875B: main (case2.c:11)
+==19828== 
+==19828== Use of uninitialised value of size 8
+==19828==    at 0x4E948FB: _itoa_word (_itoa.c:179)
+==19828==    by 0x4E97F9D: vfprintf (vfprintf.c:1642)
+==19828==    by 0x4EA0FA5: printf (printf.c:33)
+==19828==    by 0x10875B: main (case2.c:11)
+
+From the source we extract the next lines:
+
+  for (i = 0; i < 9; i++)
+    a[i] = i;
+    
+  for (i = 0; i < 10; i++){
+    printf("%d ", a[i]);
+  }
+
+Where we can observe that 9 elements in the array (o to 8) were initialized to a known value. However, the last element (index 9) does not have a known value. The error is reported because the print will try to access a value that has not been initialized. 
+
