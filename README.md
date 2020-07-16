@@ -1,2 +1,9 @@
-# group1_HPCE_2020
-HPEC First Project
+# group1_HPEC_2020
+
+
+
+# Students
+Andrés Gómez
+
+Randy Céspedes
+
