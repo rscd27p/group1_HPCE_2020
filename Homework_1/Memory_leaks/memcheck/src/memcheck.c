@@ -30,15 +30,15 @@ static char usage[] = "Usage: %s [-p ./PROGRAM] [-h][-a]\n"
 		"-p PROGRAM specifies the path to the program binary that will be analyzed.\n";
 
 // Use flags below to tell if the required arguments were provided
-	int p_flag = 0;
+int p_flag = 0;
 
 int main(int argc, char** argv){
 	int c;
-	while ((c = getopt (argc, argv, "aph:")) != -1)
+	while ((c = getopt (argc, argv, "p:ha")) != -1)
 	switch (c){
 		case 'p':
 			p_flag = 1;
-			p = atoi(optarg);
+			p = optarg;
 			break;
 		case 'h':
 			fprintf(stderr, usage, argv[0]);
@@ -59,14 +59,19 @@ int main(int argc, char** argv){
 		default:
 			abort();
 	}
-    	// Load the program to analyze with the LD_PRELOAD variable set to our custom libmemcheck.so
-    	char *const program_path = "/home/project2/git/group1_HPCE_2020/Homework_1/Memory_leaks/case4";
-	printf ("program path = %s\n", program_path);
-	//char *const program_path = p;
-	printf ("program path = %s\n", p);
-    	char *const args[] = {program_path,NULL};
-    	char *const envs[] = {"LD_PRELOAD=lib/libmemcheck.so",NULL};
-    	execve(program_path,args,envs);
+
+// Load the program to analyze with the LD_PRELOAD variable set to our custom libmemcheck.so
+    	//char *const program_path = "/home/project2/git/group1_HPCE_2020/Homework_1/Memory_leaks/case4";
+	//printf ("program path = %s\n", program_path);
+
+	if (p_flag = 1){
+		char *const program_path = p;
+		printf ("program path = %s\n", p);
+    		char *const args[] = {program_path,NULL};
+    		char *const envs[] = {"LD_PRELOAD=lib/libmemcheck.so",NULL};
+    		execve(program_path,args,envs);
+		printf ("Program succesfully executed\n");
+	}
     	return 0;
 }
 
