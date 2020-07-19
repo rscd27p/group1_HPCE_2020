@@ -18,6 +18,7 @@
 #include <dlfcn.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include "config.h"
 
 // Declare variables
 
@@ -61,14 +62,15 @@ int main(int argc, char** argv){
 	}
 
 // Load the program to analyze with the LD_PRELOAD variable set to our custom libmemcheck.so
-    	//char *const program_path = "/home/project2/git/group1_HPCE_2020/Homework_1/Memory_leaks/case4";
-	//printf ("program path = %s\n", program_path);
+
+	// case4 path: /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/case4
 
 	if (p_flag = 1){
 		char *const program_path = p;
-		printf ("program path = %s\n", p);
+		// Enable line below for troubleshooting		
+		//printf ("program path = %s\n", p);
     		char *const args[] = {program_path,NULL};
-    		char *const envs[] = {"LD_PRELOAD=lib/libmemcheck.so",NULL};
+    		char *const envs[] = {"LD_PRELOAD=../lib/libmemcheck.so",NULL};
     		execve(program_path,args,envs);
 		printf ("Program succesfully executed\n");
 	}
