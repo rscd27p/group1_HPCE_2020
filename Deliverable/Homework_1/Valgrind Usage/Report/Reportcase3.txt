@@ -1,0 +1,18 @@
+The valgring output reports the next information:
+
+==19861== HEAP SUMMARY:
+==19861==     in use at exit: 3,600 bytes in 9 blocks
+==19861==   total heap usage: 10 allocs, 1 frees, 4,000 bytes allocated
+==19861== 
+==19861== LEAK SUMMARY:
+==19861==    definitely lost: 3,600 bytes in 9 blocks
+
+From the source we extract the next lines:
+
+  for (i=0; i < 10; i++){
+    a = malloc(sizeof(int) * 100);
+  }
+  free(a);
+
+Each iteration of the for loop will reserve 400 bytes (100 * 4 bytes). After 10 iterations, this will have reserved in total 4000 bytes. However, at the end only the last reserved block is freed. This means that 3600 bytes are lost and not properly freed as reported by valgrind.
+
