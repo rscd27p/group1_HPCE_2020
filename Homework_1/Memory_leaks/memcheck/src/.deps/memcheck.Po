@@ -73,7 +73,7 @@ memcheck.o: memcheck.c /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/sigstack.h \
  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
- /usr/include/x86_64-linux-gnu/bits/sigthread.h config.h
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h ../config.h
 
 /usr/include/stdc-predef.h:
 
@@ -241,4 +241,4 @@ memcheck.o: memcheck.c /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
-config.h:
+../config.h:
