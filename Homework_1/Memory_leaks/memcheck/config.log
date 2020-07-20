@@ -151,6 +151,7 @@ on project2-VirtualBox
 config.status:841: creating Makefile
 config.status:841: creating src/Makefile
 config.status:841: creating config.h
+config.status:1022: config.h is unchanged
 config.status:1070: executing depfiles commands
 
 ## ---------------- ##
@@ -190,7 +191,7 @@ am_cv_prog_cc_c_o=yes
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/missing aclocal-1.15'
+ACLOCAL='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/missing aclocal-1.15'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
@@ -199,9 +200,9 @@ AM_BACKSLASH='\'
 AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
 AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
-AUTOCONF='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/missing autoconf'
-AUTOHEADER='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/missing autoheader'
-AUTOMAKE='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/missing automake-1.15'
+AUTOCONF='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/missing autoconf'
+AUTOHEADER='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/missing autoheader'
+AUTOMAKE='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/missing automake-1.15'
 AWK='gawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -222,7 +223,7 @@ LDFLAGS=''
 LIBOBJS=''
 LIBS=''
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/missing makeinfo'
+MAKEINFO='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/missing makeinfo'
 MKDIR_P='/bin/mkdir -p'
 OBJEXT='o'
 PACKAGE='memcheck'
@@ -260,7 +261,7 @@ host_alias=''
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Deliverable/Homework_1/Memory_leaks/memcheck/install-sh'
+install_sh='${SHELL} /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/memcheck/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
