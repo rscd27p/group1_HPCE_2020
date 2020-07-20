@@ -1,1 +1,16 @@
-This is a test README
+This is the readme file of the memcheck program.
+
+This program was created using autotools and it can be used by downloading the tar file named "memcheck-1.0.tar.gz". Once the file is uncommpresses, please run 
+the configuration file by using the command:
+
+./configure
+
+Then install using:
+
+make install
+
+Note: This may require administrative privilidges.
+
+The program binary can be found inside of the scr directory and if you wan instructions on how to run it please run the command:
+
+./memcheck -h
