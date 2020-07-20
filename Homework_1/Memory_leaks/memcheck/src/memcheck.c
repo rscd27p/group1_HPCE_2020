@@ -65,7 +65,7 @@ int main(int argc, char** argv){
 
 	// case4 path: /home/project2/Documents/HPEC/group1_HPCE_2020/Homework_1/Memory_leaks/case4
 
-	if (p_flag = 1){
+	if (p_flag == 1){
 		char *const program_path = p;
 		// Enable line below for troubleshooting		
 		//printf ("program path = %s\n", p);
