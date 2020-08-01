@@ -1,0 +1,8 @@
+--sysroot=/opt/poky/3.0.3/sysroots/aarch64-poky-linux  -O2 -mcpu=cortex-a72+crc+crypto  -DNDEBUG
+
+LINK LIBRARY:
+pthread
+
+./configure CXXFLAGS='--sysroot=/opt/poky/3.0.3/sysroots/aarch64-poky-linux  -O2 -mcpu=cortex-a72+crc+crypto  -DNDEBUG' 
+
+gnu.org/software/autoconf-archive/ax_pthread.html
