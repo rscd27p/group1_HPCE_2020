@@ -1,0 +1,2 @@
+--sysroot=/opt/poky/3.0.3/sysroots/aarch64-poky-linux  -O2 -fopenmp -mcpu=cortex-a72+crc+crypto -DNDEBUG
+./configure CXXFLAGS='--sysroot=/opt/poky/3.0.3/sysroots/aarch64-poky-linux  -O2 -fopenmp -mcpu=cortex-a72+crc+crypto -DNDEBUG'
