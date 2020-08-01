@@ -1,5 +1,5 @@
 This README file contains information on the contents of the
-meta-tec layer.
+meta-hpec layer.
 
 Please see the corresponding sections below for details.
 
@@ -33,11 +33,11 @@ Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
 Table of Contents
 =================
 
-  I. Adding the meta-tec layer to your build
+  I. Adding the meta-hpec layer to your build
  II. Misc
 
 
-I. Adding the meta-tec layer to your build
+I. Adding the meta-hpec layer to your build
 =================================================
 
 --- replace with specific instructions for the meta-tec layer ---
@@ -47,18 +47,69 @@ it.
 
 Assuming the meta-tec layer exists at the top-level of your
 yocto build tree, you can add it to the build system by adding the
-location of the meta-tec layer to bblayers.conf, along with any
+location of the meta-hpec layer to bblayers.conf, along with any
 other layers needed. e.g.:
 
   BBLAYERS ?= " \
     /path/to/yocto/meta \
     /path/to/yocto/meta-poky \
     /path/to/yocto/meta-yocto-bsp \
-    /path/to/yocto/meta-meta-tec \
+    /path/to/yocto/meta-hpec \
     "
 
 
 II. Misc
 ========
 
---- replace with specific information about the meta-tec layer ---
+--- replace with specific information about the meta-hpec layer ---
+
+Contents of the layer.conf file:
+
+	# We have a conf and classes directory, add to BBPATH
+	BBPATH .= ":${LAYERDIR}"
+
+	# We have recipes-* directories, add to BBFILES
+	BBFILES += "${LAYERDIR}/recipes-*/*/*.bb \
+		${LAYERDIR}/recipes-*/*/*.bbappend"
+
+	BBFILE_COLLECTIONS += "hpec"
+	BBFILE_PATTERN_hpec = "^${LAYERDIR}/"
+	BBFILE_PRIORITY_hpec = "6"
+
+	LAYERSERIES_COMPAT_parallel = "zeus"
+
+--- Add the following information in the Yocto local.conf file:
+
+IMAGE_INSTALL_append = " rgb2yuv-c-1.0 rgb2yuv-intrinsics-1.0 rgb2yuv-openmp-1.0 rgb2yuv-pthread-1.0"
+
+IMAGE_INSTALL_append = " libgomp libgomp-dev libgomp-staticdev glibc-staticdev"
+
+--- Check that the meta-hpec folder has the following structure:
+
+.
+├── conf
+│   └── layer.conf
+├── COPYING.MIT
+├── README
+└── recipes-hpec
+    ├── rgb2yuv-c
+    │   ├── rgb2yuv-c-1.0
+    │   │   └── rgb2yuv-c-1.0.tar.gz
+    │   └── rgb2yuv-c-1.0.bb
+    ├── rgb2yuv-intrinsics
+    │   ├── rgb2yuv-intrinsics-1.0
+    │   │   └── rgb2yuv-intrinsics-1.0.tar.gz
+    │   └── rgb2yuv-intrinsics-1.0.bb
+    ├── rgb2yuv-openmp
+    │   ├── rgb2yuv-openmp-1.0
+    │   │   └── rgb2yuv-openmp-1.0.tar.gz
+    │   └── rgb2yuv-openmp-1.0.bb
+    └── rgb2yuv-pthread
+        ├── rgb2yuv-pthread-1.0
+        │   └── rgb2yuv-pthread-1.0.tar.gz
+        └── rgb2yuv-pthread-1.0.bb
+
+10 directories, 11 files
+
+
+
