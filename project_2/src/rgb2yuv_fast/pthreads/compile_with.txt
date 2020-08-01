@@ -1,0 +1,5 @@
+CXX_FLAGS: -O2 -mtune=cortex-a72 -ftree-vectorize -DNDEBUG 
+
+LINK_LIBRARY
+-pthread
+
