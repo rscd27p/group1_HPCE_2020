@@ -33,25 +33,29 @@ int main(int argc, char **argv) {
 
 // Declare main functions
 double pi_opm_private(uint32_t num_steps){
+	// Declare Internal Variables
 	uint32_t i;
 	double x, pi, sum = 0.0;
 	double start_time, run_time;
-
+	// Calcualte step size
 	step = 1.0 / (double)num_steps;
-
+	// get start time
 	start_time = omp_get_wtime();
-	// Make for loop parallel with openmp pragma
+	// Make for loop parallel with the parallel construct
 	#pragma omp parallel
 	{
 		// Set reduction pragma to optimize sum operation and make the x variable private between threads
+		// the reduction operation makes the variable private and causes the system to perform a reduction optimization at the end of the parallel region
 		#pragma omp for reduction(+:sum) private (x)
 		for (i = 1; i <= num_steps; i++) {
 			x = (i - 0.5) * step;
 			sum = sum + 4.0 / (1.0 + x * x);
 		}
 	}
+	// Calculates Pi
 	pi = step * sum;
 	run_time = omp_get_wtime() - start_time;
+	// Prints Results
 	printf("pi private reduction with %d steps is %lf in %lf seconds\n", num_steps, pi, run_time);
 	return pi;
 }

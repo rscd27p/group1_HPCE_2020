@@ -36,23 +36,26 @@ int main(int argc, char **argv) {
 }
 
 double pi_opm_threads(uint32_t num_steps, uint32_t requested_threads){
+	// Define internal Variables
 	double x, pi, sum  = 0.0;
 	double start_time, run_time;
 	step = 1.0 / (double)num_steps;
 	start_time = omp_get_wtime();
-	//Open MP Parallel pragma with num_threads
+	// Open MP Parallel pragma with num_threads
 	#pragma omp parallel num_threads(requested_threads)
 	{
-		// Combine multiple threads with reduction for sum and make x variable private between threads
+		// Combine multiple threads with reduction for sum and and usi x variable private between threads
 		#pragma omp for reduction(+:sum) private (x)
 		for (uint32_t i = 1; i <= num_steps; i++){
 			x = (i - 0.5) * step;
 			sum = sum + 4.0 / (1.0 + x * x);
 		}
 	}
+	// Calculate Pi Value
 	pi = step * sum;
 	run_time = omp_get_wtime() - start_time;
-	printf("pi teams implementation with %d steps is %lf in %.12lf seconds using %d threads\n", num_steps, pi, run_time,requested_threads);
+	// Print Results
+	printf("pi implementation with parallel clause %d steps is %lf in %.12lf seconds using %d threads\n", num_steps, pi, run_time,requested_threads);
 	return pi;
 }
 
